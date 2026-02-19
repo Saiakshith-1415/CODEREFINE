@@ -13,7 +13,7 @@ function App() {
           try {
             setLoading(true);
             const res = await axios.post(
-              "http://localhost:8000/optimize",
+              "https://coderefine-vbeq.onrender.com/optimize",
               { code, language },
               { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -117,7 +117,7 @@ function App() {
     // Fetch history
     const fetchHistory = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/history", {
+        const res = await axios.get("https://coderefine-vbeq.onrender.com/history", {
           headers: { Authorization: `Bearer ${token}` }
         });
         setHistory(res.data.history);
@@ -144,7 +144,7 @@ function App() {
 
   const register = async () => {
     try {
-      await axios.post("http://localhost:8000/register", { email, password });
+      await axios.post("https://coderefine-vbeq.onrender.com/register", { email, password });
       alert("Registered successfully. Please login.");
       setIsRegister(false);
     } catch (err) {
@@ -154,7 +154,7 @@ function App() {
 
   const login = async () => {
     try {
-      const res = await axios.post("http://localhost:8000/login", {
+      const res = await axios.post("https://coderefine-vbeq.onrender.com/login", {
         email,
         password,
       });
@@ -173,7 +173,7 @@ function App() {
   const runCode = async () => {
   try {
     const res = await axios.post(
-      "http://localhost:8000/run",
+      "https://coderefine-vbeq.onrender.com/run",
       {
         code,
         language,
